@@ -1,2 +1,20 @@
 <%= render 'user', user: @user %>
-<%= render 'books/book', book: @book %>
+<%= render 'books/book', book_new: @book_new %>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
+  </thead>
+  <% @books.each do |book| %>
+    <tbody>
+      <td><%= image_tag @user.get_profile_image(100,100) %></td>
+      <td><%= book.title %></td>
+      <td><%= book.body %></tb>
+    </tbody>
+
+<% end %>
+</table>

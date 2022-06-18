@@ -1,20 +1,14 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-
+    @book_new = Book.new
+    @books = @user.books
   end
 
   def index
     @users = User.all
-    @user = User.find(params[:id])
-  end
-
-  def create
-    @user = User.new(user_params)
-    @user.user_id = current_user.id
-    @user.save
-    redirect_to book_path
-    @book = @user.book
+    @user = current_user
+    @book_new = Book.new
   end
 
   def edit
