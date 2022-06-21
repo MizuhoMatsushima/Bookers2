@@ -17,5 +17,6 @@ class User < ApplicationRecord
   end
 
          validates :email, uniqueness: true
-         validates :name, uniqueness: true
+         validates :name, uniqueness: true, length: { in: 2..20 }
+         validates :introduction, length: { maximum: 50 }
   end
